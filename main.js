@@ -1,5 +1,8 @@
 const { app, BrowserWindow, ipcMain } = require("electron")
 const path = require("node:path")
+const dotenv = require("dotenv")
+
+dotenv.config()
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -34,3 +37,5 @@ app.on("window-all-closed", () => {
     app.quit()
   }
 })
+
+if (require("electron-squirrel-startup") === true) app.quit()
